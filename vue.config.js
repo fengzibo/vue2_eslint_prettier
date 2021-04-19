@@ -1,4 +1,3 @@
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -25,7 +24,7 @@ module.exports = {
     lintOnSave: 'error',
     productionSourceMap: false,
     configureWebpack: {
-        plugins: [new MonacoWebpackPlugin(), ...prodPlugins],
+        plugins: [...prodPlugins],
     },
     chainWebpack: (config) => {
         config.module.rule('svg').exclude.add(resolve('src/assets/svg')).end()
